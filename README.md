@@ -30,4 +30,4 @@ Monster Hunter Rise Mod - Receive on-screen notifications while hunting with a b
 ### Credits
 [Daniel7400](https://github.com/Daniel7400) - Creator and maintainer of the mod.
 
-[GreenComfyTea](https://github.com/GreenComfyTea) - Created very useful Lua functions that I used throughout my code. Also a strong inspiration for creating this wiki and some of the layout/content.
+[GreenComfyTea](https://github.com/GreenComfyTea) - Author of several popular mods, such as [MHR Overlay](https://www.nexusmods.com/monsterhunterrise/mods/50). Also created very useful Lua functions that I used throughout my code and a strong inspiration for creating [wiki for this mod](https://github.com/Daniel7400/MHR-Bow-Coating-Notifier/wiki) and some of the layout/content.
