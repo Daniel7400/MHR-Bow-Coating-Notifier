@@ -6,7 +6,7 @@ Monster Hunter Rise Mod - Receive on-screen notifications while hunting with a b
 ***
 
 ### Links
-- [Nexus Mods](TBD)
+- [Nexus Mods]([TBD](https://www.nexusmods.com/monsterhunterrise/mods/3069)
 - [Wiki](https://github.com/Daniel7400/MHR-Bow-Coating-Notifier/wiki)
   - [FAQ](https://github.com/Daniel7400/MHR-Bow-Coating-Notifier/wiki/FAQ)
   - [Configuration](https://github.com/Daniel7400/MHR-Bow-Coating-Notifier/wiki/Configuration)
