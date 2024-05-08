@@ -1,0 +1,60 @@
+{
+	"font": "NotoSansKR-Bold.otf",
+	"unicode_glyph_ranges": [
+		"0x3131", "0x3163",
+        "0xAC00", "0xD7A3"
+	],
+	"ui": {
+		"button": {
+			"reset_config": "구성 재설정"
+		},
+		"checkbox": {
+			"enabled": "활성화됨",
+			"enable_warnings": "경고 활성화",
+			"only_show_while_aiming": "조준하는 동안에만 표시됨"
+		},
+		"color_picker": {
+			"box_background": "상자 배경색",
+			"box_outline": "상자 외곽선 색상",
+			"message_text": "메시지 텍스트 색상"
+		},
+		"combo_box": {
+			"display_when": "표시 시기"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "남은 샷",
+				"percent": "남은 샷의 비율"
+			}
+		},
+		"header": {
+			"language": "언어",
+			"notification_display": "알림 표시",
+			"settings": "설정",
+			"warnings": "경고"
+		},
+		"misc": {
+			"current": "현재의",
+			"shots": "발"
+		},
+		"slider": {
+			"adjust_position": "위치 조정",
+			"font_size": "글꼴 크기",
+			"is_equal_or_less": "같음 또는 작음"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + 마우스 왼쪽 버튼을 클릭하여 수동으로 입력하세요."
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "알리다",
+			"warning": "경고"
+		},
+		"message": {
+			"no_coating": "코팅이 적용되지 않았습니다.",
+			"single_remaining_shot": "%i발 남았습니다",
+			"remaining_shots": "%i발 남았습니다"
+		}
+	}
+}

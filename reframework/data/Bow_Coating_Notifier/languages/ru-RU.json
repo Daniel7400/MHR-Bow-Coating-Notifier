@@ -1,0 +1,61 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [
+		"0x0400", "0x052F",
+		"0x2DE0", "0x2DFF",
+		"0xA640", "0xA69F"
+	],
+	"ui": {
+		"button": {
+			"reset_config": "Сбросить конфигурацию"
+		},
+		"checkbox": {
+			"enabled": "Включено",
+			"enable_warnings": "Включить предупреждения",
+			"only_show_while_aiming": "Виден только при прицеливании"
+		},
+		"color_picker": {
+			"box_background": "Цвет фона коробки",
+			"box_outline": "Цвет контура коробки",
+			"message_text": "Цвет текста сообщения"
+		},
+		"combo_box": {
+			"display_when": "Отображать, когда"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Осталось выстрелов",
+				"percent": "Процент оставшихся выстрелов"
+			}
+		},
+		"header": {
+			"language": "Язык",
+			"notification_display": "Отображение уведомлений",
+			"settings": "Настройки",
+			"warnings": "Предупреждения"
+		},
+		"misc": {
+			"current": "Текущий",
+			"shots": "выстрелов"
+		},
+		"slider": {
+			"adjust_position": "Отрегулировать положение",
+			"font_size": "Размер шрифта",
+			"is_equal_or_less": "Равно ИЛИ Меньше"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + щелчок левой кнопкой мыши для ввода вручную."
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Тревога",
+			"warning": "Предупреждение"
+		},
+		"message": {
+			"no_coating": "Покрытие не нанесено",
+			"single_remaining_shot": "остался %i выстрел",
+			"remaining_shots": "осталось %i выстрелов"
+		}
+	}
+}

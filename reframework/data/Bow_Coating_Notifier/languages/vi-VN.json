@@ -1,0 +1,57 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [],
+	"ui": {
+		"button": {
+			"reset_config": "Đặt lại cấu hình"
+		},
+		"checkbox": {
+			"enabled": "Đã bật",
+			"enable_warnings": "Bật cảnh báo",
+			"only_show_while_aiming": "Chỉ hiển thị khi nhắm"
+		},
+		"color_picker": {
+			"box_background": "Màu nền hộp",
+			"box_outline": "Màu viền hộp",
+			"message_text": "Màu văn bản tin nhắn"
+		},
+		"combo_box": {
+			"display_when": "Hiển thị khi"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Số lần bắn còn lại",
+				"percent": "Tỷ lệ số lần bắn còn lại"
+			}
+		},
+		"header": {
+			"language": "Ngôn ngữ",
+			"notification_display": "Hiển thị thông báo",
+			"settings": "Cài đặt",
+			"warnings": "Cảnh báo"
+		},
+		"misc": {
+			"current": "Hiện hành",
+			"shots": "phát súng"
+		},
+		"slider": {
+			"adjust_position": "Điều chỉnh vị trí",
+			"font_size": "Cỡ chữ",
+			"is_equal_or_less": "Bằng HOẶC Nhỏ hơn"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + Nhấp chuột trái để nhập thủ công"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Báo động",
+			"warning": "Cảnh báo"
+		},
+		"message": {
+			"no_coating": "Không áp dụng lớp phủ",
+			"single_remaining_shot": "còn %i phát",
+			"remaining_shots": "Còn %i shot"
+		}
+	}
+}

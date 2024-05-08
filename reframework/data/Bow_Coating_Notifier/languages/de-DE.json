@@ -1,0 +1,57 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [],
+	"ui": {
+		"button": {
+			"reset_config": "Zurück zu originale Konfiguration"
+		},
+		"checkbox": {
+			"enabled": "Ermöglicht",
+			"enable_warnings": "Warnungen aktivieren",
+			"only_show_while_aiming": "Nur sichtbar beim Zielen"
+		},
+		"color_picker": {
+			"box_background": "Box Hintergrund Farbe",
+			"box_outline": "Box Umriß Farbe",
+			"message_text": "Farbe des Nachrichtentextes"
+		},
+		"combo_box": {
+			"display_when": "Anzeigen wenn"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Verbleibende Schüsse",
+				"percent": "Prozentsatz der verbleibenden Schüsse"
+			}
+		},
+		"header": {
+			"language": "Sprache",
+			"notification_display": "Benachrichtigungsanzeige",
+			"settings": "Einstellungen",
+			"warnings": "Warnungen"
+		},
+		"misc": {
+			"current": "Aktuell",
+			"shots": "Schüsse"
+		},
+		"slider": {
+			"adjust_position": "Position anpassen",
+			"font_size": "Schriftgröße",
+			"is_equal_or_less": "Ist gleich ODER weniger als"
+		},
+		"tooltip": {
+			"manual_input": "STRG + Links Klick zur manuellen Eingabe"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Alarm",
+			"warning": "Warnung"
+		},
+		"message": {
+			"no_coating": "Keine Beschichtung aufgetragen",
+			"single_remaining_shot": "%i Schuß übrig",
+			"remaining_shots": "%i verbleibende Schüsse"
+		}
+	}
+}

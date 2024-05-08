@@ -1,0 +1,57 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [],
+	"ui": {
+		"button": {
+			"reset_config": "Redefinir configuração"
+		},
+		"checkbox": {
+			"enabled": "Habilitado",
+			"enable_warnings": "Habilitar avisos",
+			"only_show_while_aiming": "Visível apenas durante a mira"
+		},
+		"color_picker": {
+			"box_background": "Cor de fundo da caixa",
+			"box_outline": "Cor do contorno da caixa",
+			"message_text": "Cor do texto da mensagem"
+		},
+		"combo_box": {
+			"display_when": "Exibir quando"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Tiros restantes",
+				"percent": "Porcentagem de arremessos restantes"
+			}
+		},
+		"header": {
+			"language": "Linguagem",
+			"notification_display": "Exibição de notificação",
+			"settings": "Configurações",
+			"warnings": "Avisos"
+		},
+		"misc": {
+			"current": "Atual",
+			"shots": "tiros"
+		},
+		"slider": {
+			"adjust_position": "Ajustar posição",
+			"font_size": "Tamanho da fonte",
+			"is_equal_or_less": "É igual a OU menor que"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + clique esquerdo para inserir manualmente"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Alerta",
+			"warning": "Aviso"
+		},
+		"message": {
+			"no_coating": "Nenhum revestimento aplicado",
+			"single_remaining_shot": "%i tiro restante",
+			"remaining_shots": "%i tiros restantes"
+		}
+	}
+}

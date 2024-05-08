@@ -1,0 +1,57 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [],
+	"ui": {
+		"button": {
+			"reset_config": "Reset Config"
+		},
+		"checkbox": {
+			"enabled": "Enabled",
+			"enable_warnings": "Enable Warnings",
+			"only_show_while_aiming": "Only visible while aiming"
+		},
+		"color_picker": {
+			"box_background": "Box Background Color",
+			"box_outline": "Box Outline Color",
+			"message_text": "Message Text Color"
+		},
+		"combo_box": {
+			"display_when": "Display when"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Shots Remaining",
+				"percent": "Percentage of Shots Remaining"
+			}
+		},
+		"header": {
+			"language": "Language",
+			"notification_display": "Notification Display",
+			"settings": "Settings",
+			"warnings": "Warnings"
+		},
+		"misc": {
+			"current": "Current",
+			"shots": "shots"
+		},
+		"slider": {
+			"adjust_position": "Adjust Position",
+			"font_size": "Font Size",
+			"is_equal_or_less": "Is Equal to OR Less than"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + Left Click to input manually"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Alert",
+			"warning": "Warning"
+		},
+		"message": {
+			"no_coating": "No coating applied",
+			"single_remaining_shot": "%i shot remaining",
+			"remaining_shots": "%i shots remaining"
+		}
+	}
+}

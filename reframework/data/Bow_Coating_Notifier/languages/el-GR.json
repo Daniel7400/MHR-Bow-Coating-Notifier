@@ -1,0 +1,60 @@
+{
+	"font": "NotoSans-Bold.otf",
+	"unicode_glyph_ranges": [
+		"0x0370", "0x03FF",
+		"0x1F00", "0x1FFF"
+	],
+	"ui": {
+		"button": {
+			"reset_config": "Επαναφορά διαμόρφωσης"
+		},
+		"checkbox": {
+			"enabled": "Ενεργοποιήθηκε",
+			"enable_warnings": "Ενεργοποίηση προειδοποιήσεων",
+			"only_show_while_aiming": "Ορατό μόνο όταν στοχεύετε"
+		},
+		"color_picker": {
+			"box_background": "Χρώμα φόντου κουτιού",
+			"box_outline": "Χρώμα περιγράμματος κουτιού",
+			"message_text": "Χρώμα κειμένου μηνύματος"
+		},
+		"combo_box": {
+			"display_when": "Εμφάνιση πότε"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Πλάνα που απομένουν",
+				"percent": "Ποσοστό βολών που απομένει"
+			}
+		},
+		"header": {
+			"language": "Γλώσσα",
+			"notification_display": "Εμφάνιση ειδοποιήσεων",
+			"settings": "Ρυθμίσεις",
+			"warnings": "Προειδοποιήσεις"
+		},
+		"misc": {
+			"current": "Ρεύμα",
+			"shots": "βολές"
+		},
+		"slider": {
+			"adjust_position": "Προσαρμογή Θέσης",
+			"font_size": "Μέγεθος γραμματοσειράς",
+			"is_equal_or_less": "Είναι ίσο με Ή μικρότερο από"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + Αριστερό κλικ για μη αυτόματη εισαγωγή"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Συναγερμός",
+			"warning": "Προειδοποίηση"
+		},
+		"message": {
+			"no_coating": "Δεν εφαρμόζεται επίστρωση",
+			"single_remaining_shot": "Απομένει %i βολή",
+			"remaining_shots": "Απομένουν %i βολές"
+		}
+	}
+}

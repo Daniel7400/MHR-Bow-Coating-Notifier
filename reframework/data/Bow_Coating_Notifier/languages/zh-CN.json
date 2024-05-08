@@ -1,0 +1,61 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [
+		"0x3000", "0x30FF",
+        "0x31F0", "0x31FF",
+		"0x4E00", "0x9FAF"
+	],
+	"ui": {
+		"button": {
+			"reset_config": "重置配置"
+		},
+		"checkbox": {
+			"enabled": "启用",
+			"enable_warnings": "启用警告",
+			"only_show_while_aiming": "仅在瞄准时可见"
+		},
+		"color_picker": {
+			"box_background": "框背景颜色",
+			"box_outline": "盒子轮廓颜色",
+			"message_text": "消息文本颜色"
+		},
+		"combo_box": {
+			"display_when": "显示时间"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "剩余拍摄次数",
+				"percent": "剩余投篮命中率"
+			}
+		},
+		"header": {
+			"language": "语言",
+			"notification_display": "通知显示",
+			"settings": "设置",
+			"warnings": "警告"
+		},
+		"misc": {
+			"current": "当前的",
+			"shots": "次射击"
+		},
+		"slider": {
+			"adjust_position": "调整位置",
+			"font_size": "字体大小",
+			"is_equal_or_less": "等于或小于"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + 左键单击手动输入"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "警报",
+			"warning": "警告"
+		},
+		"message": {
+			"no_coating": "未施加涂层",
+			"single_remaining_shot": "还剩 %i 次射击",
+			"remaining_shots": "还剩 %i 枪"
+		}
+	}
+}

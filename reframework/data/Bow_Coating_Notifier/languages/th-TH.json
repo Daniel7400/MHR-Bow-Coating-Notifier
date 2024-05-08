@@ -1,0 +1,59 @@
+{
+	"font": "NotoSansThai-Bold.otf",
+	"unicode_glyph_ranges": [
+		"0x0E00", "0x0E7F"
+	],
+	"ui": {
+		"button": {
+			"reset_config": "รีเซ็ตการกำหนดค่า"
+		},
+		"checkbox": {
+			"enabled": "เปิดใช้งานแล้ว",
+			"enable_warnings": "เปิดใช้งานคำเตือน",
+			"only_show_while_aiming": "มองเห็นได้เฉพาะขณะเล็งเท่านั้น"
+		},
+		"color_picker": {
+			"box_background": "สีพื้นหลังของกล่อง",
+			"box_outline": "สีเค้าร่างของกล่อง",
+			"message_text": "สีข้อความของข้อความ"
+		},
+		"combo_box": {
+			"display_when": "แสดงเมื่อ"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "ช็อตที่เหลือ",
+				"percent": "เปอร์เซ็นต์ของช็อตที่เหลือ"
+			}
+		},
+		"header": {
+			"language": "ภาษา",
+			"notification_display": "การแสดงการแจ้งเตือน",
+			"settings": "การตั้งค่า",
+			"warnings": "คำเตือน"
+		},
+		"misc": {
+			"current": "ปัจจุบัน",
+			"shots": " นัด"
+		},
+		"slider": {
+			"adjust_position": "ปรับตำแหน่ง",
+			"font_size": "ขนาดตัวอักษร",
+			"is_equal_or_less": "เท่ากับหรือน้อยกว่า"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + คลิกซ้ายเพื่อป้อนข้อมูลด้วยตนเอง"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "เตือน",
+			"warning": "คำเตือน"
+		},
+		"message": {
+			"no_coating": "ไม่มีการเคลือบใดๆ",
+			"single_remaining_shot": "เหลืออีก %i นัด",
+			"remaining_shots": "เหลืออีก %i นัด"
+		}
+	}
+}

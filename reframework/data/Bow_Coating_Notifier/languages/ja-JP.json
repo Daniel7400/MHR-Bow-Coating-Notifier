@@ -1,0 +1,60 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [
+		"0x3000", "0x30FF",
+        "0x31F0", "0x31FF"
+	],
+	"ui": {
+		"button": {
+			"reset_config": "設定をリセット"
+		},
+		"checkbox": {
+			"enabled": "有効",
+			"enable_warnings": "警告を有効にする",
+			"only_show_while_aiming": "照準を合わせている間のみ表示されます"
+		},
+		"color_picker": {
+			"box_background": "ボックスの背景色",
+			"box_outline": "ボックスの輪郭の色",
+			"message_text": "メッセージのテキストの色"
+		},
+		"combo_box": {
+			"display_when": "いつ表示するか"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "残りショット数",
+				"percent": "残りのショットの割合"
+			}
+		},
+		"header": {
+			"language": "言語",
+			"notification_display": "通知表示",
+			"settings": "設定",
+			"warnings": "警告"
+		},
+		"misc": {
+			"current": "現在",
+			"shots": "ショット"
+		},
+		"slider": {
+			"adjust_position": "位置を調整する",
+			"font_size": "フォントサイズ",
+			"is_equal_or_less": "等しいか、以下です"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + 左クリックして手動で入力します"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "アラート",
+			"warning": "警告"
+		},
+		"message": {
+			"no_coating": "コーティングは施されていません",
+			"single_remaining_shot": "残り%iショット",
+			"remaining_shots": "残り%i発"
+		}
+	}
+}

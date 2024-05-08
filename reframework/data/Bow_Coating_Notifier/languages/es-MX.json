@@ -1,0 +1,57 @@
+{
+	"font": "NotoSansSC-Bold.otf",
+	"unicode_glyph_ranges": [],
+	"ui": {
+		"button": {
+			"reset_config": "Restablecer configuración"
+		},
+		"checkbox": {
+			"enabled": "Activado",
+			"enable_warnings": "Habilitar advertencias",
+			"only_show_while_aiming": "Solo visible mientras apuntas"
+		},
+		"color_picker": {
+			"box_background": "Color de fondo del cuadro",
+			"box_outline": "Color del contorno del cuadro",
+			"message_text": "Color del texto del mensaje"
+		},
+		"combo_box": {
+			"display_when": "Mostrar cuando"
+		},
+		"dropdown": {
+			"warning_activation": {
+				"number": "Disparos restantes",
+				"percent": "Porcentaje de disparos restantes"
+			}
+		},
+		"header": {
+			"language": "Idioma",
+			"notification_display": "Pantalla de notificación",
+			"settings": "Ajustes",
+			"warnings": "Advertencias"
+		},
+		"misc": {
+			"current": "Actual",
+			"shots": "tiros"
+		},
+		"slider": {
+			"adjust_position": "Ajustar posición",
+			"font_size": "Tamaño de fuente",
+			"is_equal_or_less": "Es igual o menor que"
+		},
+		"tooltip": {
+			"manual_input": "CTRL + clic izquierdo para ingresar manualmente"
+		}
+	},
+	"notification": {
+		"header": {
+			"alert": "Alerta",
+			"warning": "Advertencia"
+		},
+		"message": {
+			"no_coating": "Sin recubrimiento aplicado",
+			"single_remaining_shot": "%i disparo restante",
+			"remaining_shots": "Quedan %i tiros"
+		}
+	}
+}
