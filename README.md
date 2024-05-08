@@ -16,14 +16,14 @@ Monster Hunter Rise Mod - Receive on-screen notifications while hunting with a b
 ***
 
 ### Requirements
-- [REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26) version 1.617+
-- [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134) version 1.0.1+
+- [REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26) (version 1.617 or higher)
+- [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134) (version 1.0.1 or higher)
 
 ### Installation
 1. Install [REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26).
 2. Install [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134).
 3. Download this mod:
-    - Download the stable version from [Nexus Mods](TBD)
+    - Download the stable version from [Nexus Mods](https://www.nexusmods.com/monsterhunterrise/mods/3069)
     - Download the latest release from [this repo](TBD). Please be aware that this **MIGHT** not be stable as features/fixes might be in development.
 4. Extract the contents of the mod (**OR** use the Fluffy Mod Manager, my recommenedation) and place it in the `.../MonsterHunterRise` folder. Refer to the [FAQ](https://github.com/Daniel7400/MHR-Bow-Coating-Notifier/wiki/FAQ#3-what-files-are-included-with-the-mod--where-are-the-files-for-this-mod) to verify the files are in the right place.
 
