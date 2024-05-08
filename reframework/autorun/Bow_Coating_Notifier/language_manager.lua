@@ -85,9 +85,7 @@ local language_manager = {
         0xFF00, 0xFFEF, -- Halfwidth and Fullwidth Forms
         0x0300, 0x036F, -- Combining Diacritical Marks
     }
-    --[[
-        For reference: https://github.com/ocornut/imgui/blob/master/imgui_draw.cpp#L3254
-    ]]
+    --[[ For reference: https://github.com/ocornut/imgui/blob/master/imgui_draw.cpp#L3254 ]]
 };
 
 -- The collection of loaded languages, which starts with only the default.

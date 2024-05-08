@@ -25,10 +25,7 @@ local constants <const> = {
         | 1 << 20 --[[ Display RGB Value Fields ]]
         | 1 << 22, --[[ Display Hex Value Field ]]
 
-    --[[
-        For reference:
-        https://github.com/praydog/REFramework/blob/master/dependencies/imguizmo/example/imgui.h#L1536
-    ]]
+    --[[ For reference: https://github.com/praydog/REFramework/blob/master/dependencies/imguizmo/example/imgui.h#L1536 ]]
 
     -- The dropdown options for the warning activation condition.
     warning_activation_option = {
