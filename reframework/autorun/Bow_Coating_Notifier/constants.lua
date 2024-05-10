@@ -22,6 +22,7 @@ local constants <const> = {
     -- The standard options to use within a color picker with alpha.
     color_picker_options_with_alpha = 1 << 3  --[[ No Options ]]
         | 1 << 16 --[[ Display Alpha Bar ]]
+        | 1 << 18 --[[ Display Alpha Current Preview ]]
         | 1 << 20 --[[ Display RGB Value Fields ]]
         | 1 << 22, --[[ Display Hex Value Field ]]
 
