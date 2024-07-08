@@ -16,7 +16,7 @@ Monster Hunter Rise Mod - Receive on-screen notifications while hunting with a b
 ***
 
 ### Requirements
-- [REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26) (version 1.617 or higher)
+- [REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26) (latest version)
 - [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134) (version 1.0.1 or higher)
 
 ### Installation
