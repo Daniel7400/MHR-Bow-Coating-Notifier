@@ -140,18 +140,18 @@ end
 function table.find_key(list, value_to_find)
     -- Assert the provided value for list is a table.
     assert(type(list) == "table", "The provided 'list' must be a table.");
-
+    
     -- Iterate over each pair in the provided list.
-	for key, value in pairs(list) do
+    for key, value in pairs(list) do
         -- Check if the provided value to find matches the value at the current key.
-		if value_to_find == value then
+        if value_to_find == value then
             -- If yes, then return the key.
-			return key;
-		end
-	end
-
+            return key;
+        end
+    end
+    
     -- Return nil when no matching value was found against the provided value to find.
-	return nil;
+    return nil;
 end
 
 ---
