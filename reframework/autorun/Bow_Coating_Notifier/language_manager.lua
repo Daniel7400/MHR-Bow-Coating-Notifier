@@ -83,6 +83,7 @@ local language_manager = {
         0x2000, 0x206F, -- General Punctuation
         0xFF00, 0xFFEF, -- Halfwidth and Fullwidth Forms
         0x0300, 0x036F, -- Combining Diacritical Marks
+        0x20D0, 0x20FF, -- Combining Diacritical Marks for Symbols
     }
     --[[ For reference: https://github.com/ocornut/imgui/blob/master/imgui_draw.cpp#L3254 ]]
 };
