@@ -1,9 +1,8 @@
 --- IMPORTS
-local config_manager = require("Bow_Coating_Notifier.config_manager");
 local constants = require("Bow_Coating_Notifier.constants");
+local config_manager = require("Bow_Coating_Notifier.config_manager");
 local draw_manager = require("Bow_Coating_Notifier.draw_manager");
 local language_manager = require("Bow_Coating_Notifier.language_manager");
-local green_comfy_tea_utils = require("Bow_Coating_Notifier.green_comfy_tea_utils");
 --- END IMPORTS
 
 --- The manager for the REFramework UI section of the mod.
@@ -56,6 +55,9 @@ function ui_manager.init_module()
             language_changed,
             font_size_changed,
             changed = false, false, false, false;
+        
+        -- Create a flag to track if the language was reset (when the reset button is pressed).
+        local language_reset = false;
 
         -- Set the language index to default to 1 (default).
         local language_index = 1;
@@ -71,10 +73,12 @@ function ui_manager.init_module()
                 -- If pressed, then reset the config to the default values.
                 config_manager.reset();
 
-                -- Mark the config, language, and font size changed flags as true.
+                -- Mark the config and font size changed flags as true.
                 config_changed = true;
-                language_changed = true;
                 font_size_changed = true;
+
+                -- Mark the language reset flag as true.
+                language_reset = true;
             end
     
             -- Create a checkbox that a user can use to enable/disable the functionality of the mod.
@@ -103,46 +107,22 @@ function ui_manager.init_module()
                     local max_y_adjust = math.floor(display_size.y / 2);
                     local min_y_adjust = max_y_adjust * -1;
 
-                    -- Create a slider that the user can use to adjust the X position of the notification.
-                    imgui.text(language_manager.language.current.ui.slider.adjust_position);
-                    imgui.text("X");
-                    imgui.same_line();
-                    changed, config_manager.config.current.display.x_position_adjust = imgui.slider_int(" ",
-                        config_manager.config.current.display.x_position_adjust, min_x_adjust, max_x_adjust);
+                    -- Create a xy position slider that the user can use to adjust the position of things drawn on screen.
+                    changed, config_manager.config.current.display.x_position_adjust,
+                        config_manager.config.current.display.y_position_adjust = imgui.xy_position_sliders(
+                            config_manager.config.current.display.x_position_adjust,
+                            config_manager.config.current.display.y_position_adjust,
+                            min_x_adjust, max_x_adjust, min_y_adjust, max_y_adjust,
+                            language_manager.language.current.ui.slider.adjust_position,
+                            language_manager.language.current.ui.tooltip.manual_input, true);
                     config_changed = config_changed or changed;
-
-                    -- Check if the user is hovering over the X position slider and is NOT interacting with it.
-                    if imgui.is_item_hovered() and not imgui.is_item_active() then
-                        -- If yes, then create a tooltip that will display to inform the user of a way to input
-                        -- a value manually (with a keyboard).
-                        imgui.set_tooltip(language_manager.language.current.ui.tooltip.manual_input);
-                        imgui.begin_tooltip();
-                        imgui.end_tooltip();
-                    end
-                    
-                    -- Create a slider that the user can use to adjust the Y position of the notification.
-                    imgui.text("Y")
-                    imgui.same_line();
-                    changed, config_manager.config.current.display.y_position_adjust = imgui.slider_int("  ",
-                        config_manager.config.current.display.y_position_adjust, min_y_adjust, max_y_adjust);
-                    config_changed = config_changed or changed;
-
-                    -- Check if the user is hovering over the Y position slider and is NOT interacting with it.
-                    if imgui.is_item_hovered() and not imgui.is_item_active() then
-                        -- If yes, then create a tooltip that will display to inform the user of a way to input
-                        -- a value manually (with a keyboard).
-                        imgui.set_tooltip(language_manager.language.current.ui.tooltip.manual_input);
-                        imgui.begin_tooltip();
-                        imgui.end_tooltip();
-                    end
-                    imgui.new_line();
 
                     -- Create a slider that the user can use to adjust the font size of the notification text.
                     imgui.text(language_manager.language.current.ui.slider.font_size);
                     changed, config_manager.config.current.display.font_size = imgui.slider_int("   ",
                         config_manager.config.current.display.font_size, 1, 100);
-                    config_changed = config_changed or changed;
                     font_size_changed = font_size_changed or changed;
+                    config_changed = config_changed or changed;
 
                     -- Check if the user is hovering over the font size slider and is NOT interacting with it.
                     if imgui.is_item_hovered() and not imgui.is_item_active() then
@@ -154,27 +134,28 @@ function ui_manager.init_module()
                     end
                     imgui.new_line();
 
+                    -- Create a new counter that will track how many color pickers have been added.
+                    local color_counter = 0;
+
                     -- Create a color picker that the user can use to change the color of the message text within the notification.
-                    imgui.text(language_manager.language.current.ui.color_picker.message_text);
-                    changed, config_manager.config.current.display.text_color =
-                        imgui.color_picker_argb(language_manager.language.current.ui.misc.current,
-                        config_manager.config.current.display.text_color, constants.color_picker_options);
+                    changed, config_manager.config.current.display.text_color, color_counter =
+                        imgui.color_picker_argb_top_label(config_manager.config.current.display.text_color,
+                        language_manager.language.current.ui.color_picker.message_text, color_counter,
+                        language_manager.language.current.ui.misc.current, constants.color_picker_options, true);
                     config_changed = config_changed or changed;
-                    imgui.new_line();
-    
+
                     -- Create a color picker that the user can use to change the color of the notification box outline.
-                    imgui.text(language_manager.language.current.ui.color_picker.box_outline);
-                    changed, config_manager.config.current.display.box_outline_color =
-                        imgui.color_picker_argb(language_manager.language.current.ui.misc.current .. " ",
-                        config_manager.config.current.display.box_outline_color, constants.color_picker_options);
+                    changed, config_manager.config.current.display.box_outline_color, color_counter =
+                        imgui.color_picker_argb_top_label(config_manager.config.current.display.box_outline_color,
+                        language_manager.language.current.ui.color_picker.box_outline, color_counter,
+                        language_manager.language.current.ui.misc.current, constants.color_picker_options, true);
                     config_changed = config_changed or changed;
-                    imgui.new_line();
 
                     -- Create a color picker that the user can use to change the color of the background of the notification box.
-                    imgui.text(language_manager.language.current.ui.color_picker.box_background);
-                    changed, config_manager.config.current.display.box_background_color =
-                        imgui.color_picker_argb(language_manager.language.current.ui.misc.current .. "  ",
-                        config_manager.config.current.display.box_background_color, constants.color_picker_options_with_alpha);
+                    changed, config_manager.config.current.display.box_background_color, color_counter =
+                        imgui.color_picker_argb_top_label(config_manager.config.current.display.box_background_color,
+                        language_manager.language.current.ui.color_picker.box_background, color_counter,
+                        language_manager.language.current.ui.misc.current, constants.color_picker_options_with_alpha, true);
                     config_changed = config_changed or changed;
 
                     -- Close the Notification Display tree node.
@@ -227,29 +208,29 @@ function ui_manager.init_module()
                     config_changed = config_changed or changed;
                     imgui.new_line();
 
+                    -- Create a new counter that will track how many color pickers have been added.
+                    local color_counter = 0;
+
                     -- Create a color picker that the user can use to change the color of the message text within the
                     -- warning notification.
-                    imgui.text(language_manager.language.current.ui.color_picker.message_text);
-                    changed, config_manager.config.current.warning.text_color =
-                        imgui.color_picker_argb(language_manager.language.current.ui.misc.current,
-                        config_manager.config.current.warning.text_color, constants.color_picker_options);
+                    changed, config_manager.config.current.warning.text_color, color_counter =
+                        imgui.color_picker_argb_top_label(config_manager.config.current.warning.text_color,
+                        language_manager.language.current.ui.color_picker.message_text, color_counter,
+                        language_manager.language.current.ui.misc.current, constants.color_picker_options, true);
                     config_changed = config_changed or changed;
-                    imgui.new_line();
 
                     -- Create a color picker that the user can use to change the color of the warning notification box outline.
-                    imgui.text(language_manager.language.current.ui.color_picker.box_outline);
-                    changed, config_manager.config.current.warning.box_outline_color =
-                        imgui.color_picker_argb(language_manager.language.current.ui.misc.current .. " ",
-                        config_manager.config.current.warning.box_outline_color, constants.color_picker_options);
+                    changed, config_manager.config.current.warning.box_outline_color, color_counter =
+                        imgui.color_picker_argb_top_label(config_manager.config.current.warning.box_outline_color,
+                        language_manager.language.current.ui.color_picker.box_outline, color_counter,
+                        language_manager.language.current.ui.misc.current, constants.color_picker_options, true);
                     config_changed = config_changed or changed;
-                    imgui.new_line();
 
-                    -- Create a color picker that the user can use to change the color of the background of the warning
-                    -- notification box.
-                    imgui.text(language_manager.language.current.ui.color_picker.box_background);
-                    changed, config_manager.config.current.warning.box_background_color =
-                        imgui.color_picker_argb(language_manager.language.current.ui.misc.current .. "  ",
-                        config_manager.config.current.warning.box_background_color, constants.color_picker_options_with_alpha);
+                    -- Create a color picker that the user can use to change the color of the warning notification box outline.
+                    changed, config_manager.config.current.warning.box_background_color, color_counter =
+                        imgui.color_picker_argb_top_label(config_manager.config.current.warning.box_background_color,
+                        language_manager.language.current.ui.color_picker.box_background, color_counter,
+                        language_manager.language.current.ui.misc.current, constants.color_picker_options_with_alpha, true);
                     config_changed = config_changed or changed;
                     
                     -- Close the Warnings tree node.
@@ -259,11 +240,10 @@ function ui_manager.init_module()
                 -- Create a new tree node for the language settings.
                 if imgui.tree_node(language_manager.language.current.ui.header.language) then
 
-                    -- Create a combo box that allows the user to switch between different language options.
-                    changed, language_index = imgui.combo(" ", green_comfy_tea_utils.table.find_index(language_manager.language.names,
-                        config_manager.config.current.language, false), language_manager.language.names);
-                    config_changed = config_changed or changed;
-                    language_changed = language_changed or changed;
+                    -- Create a language picker that allows the user to switch between different language options.
+                    language_changed, language_index = imgui.language_picker(
+                        config_manager.config.current.language, language_manager.language.names);
+                    config_changed = language_changed or config_changed;
                     
                     -- Close the Language tree node.
                     imgui.tree_pop();
@@ -280,8 +260,8 @@ function ui_manager.init_module()
             imgui.tree_pop();
         end
 
-        -- Check if the language option was changed.
-        if language_changed then
+        -- Check if the language was reset or the option was changed.
+        if language_reset or language_changed then
             -- If yes, then update the selected language using the selected language.
             language_manager.update(language_index, true);
 

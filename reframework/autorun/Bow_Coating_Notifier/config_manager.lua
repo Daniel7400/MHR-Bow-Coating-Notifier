@@ -1,6 +1,5 @@
 -- IMPORTS
 local constants = require("Bow_Coating_Notifier.constants");
-local green_comfy_tea_utils = require("Bow_Coating_Notifier.green_comfy_tea_utils");
 -- END IMPORTS
 
 --- The manager for all things related to the configuration file.
@@ -81,12 +80,11 @@ function config_manager.load()
         -- If yes, then log that the config file failed to load.
         log.error(string.format("[%s] - Failed to load config file, switching to default.", constants.mod_name));
 
-        -- Set the current config as a deep copy of the default config.
-        config_manager.config.current = green_comfy_tea_utils.table.deep_copy(config_manager.config.default);
+        -- Set the current config as a clone of the default config.
+        config_manager.config.current = table.clone(config_manager.config.default);
     else -- Else, the config file was loaded without issue.
-        -- Set the current config as the merge of the default config and loaded config (to verify the schema, and force
-        -- it to match the default config structure, any other values will be ignored).
-        config_manager.config.current = green_comfy_tea_utils.table.merge(config_manager.config.default, loaded_config);
+        -- Set the current config as the matched merge of the default config and loaded config.
+        config_manager.config.current = table.matched_merge(config_manager.config.default, loaded_config);
     end
 end
 
@@ -111,7 +109,7 @@ end
 --- Reset the current config values back to the default values.
 ---
 function config_manager.reset()
-    config_manager.config.current = green_comfy_tea_utils.table.deep_copy(config_manager.config.default);
+    config_manager.config.current = table.clone(config_manager.config.default);
 end
 
 ---

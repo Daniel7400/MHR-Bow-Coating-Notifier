@@ -25,8 +25,7 @@ local draw_manager = {
 };
 
 -- Define a buffer size that will be used to add spacing between the edge of the display notification and the text within.
-local box_buffer_size <const> = 30;
-local box_buffer_size_half <const> = box_buffer_size / 2;
+local box_buffer_size <const> = 15;
 
 ---
 --- Initializes the draw manager module.
@@ -41,7 +40,7 @@ function draw_manager.init_module()
         if draw_manager.flags.draw then
             -- If yes, initalize the notification variables, defaulting to the normal/alert values.
             local header_text = string.format("<-%s->", language_manager.language.current.notification.header.alert);
-            local message_text = string.format("\n%s", language_manager.language.current.notification.message.no_coating);
+            local message_text = language_manager.language.current.notification.message.no_coating;
             local text_color = config_manager.config.current.display.text_color;
             local outline_color = config_manager.config.current.display.box_outline_color;
             local background_color = config_manager.config.current.display.box_background_color;
@@ -65,59 +64,35 @@ function draw_manager.init_module()
                 end
 
                 -- Update the message text for the warning text.
-                message_text = string.format("\n%s", remaining_shots_language_string);
+                message_text = remaining_shots_language_string;
                 
                 -- Update the colors to use the warning color values set on the config.
                 text_color = config_manager.config.current.warning.text_color;
                 outline_color = config_manager.config.current.warning.box_outline_color;
                 background_color = config_manager.config.current.warning.box_background_color;
             end
-    
-            -- Measure the width and heights of the header and message text strings.
-            local header_width, header_height = draw_manager.font:measure(header_text);
-            local message_width, message_height = draw_manager.font:measure(message_text);
-
-            -- Calculate the x offset for the header text to ensure it sits in the middle of the message box.
-            local header_x_offset = (message_width - header_width) / 2;
-
-            -- Calculate the dimensions of the message box using the width and height of the message
-            -- and accounting for the buffer zone between the box edge and text.
-            local box_width = message_width + box_buffer_size;
-            local box_height = message_height + box_buffer_size;
 
             -- Get the width and height of the screen.
             local screen_w, screen_h = d2d.surface_size();
-    
-            -- Calculate the x and y coordinate such that the box and text will render in the center of the screen.
-            local box_x = (screen_w / 2) - (box_width / 2);
-            local box_y = (screen_h / 2) - (box_height / 2);
-            local text_x = box_x;
-            local text_y = box_y;
 
-            -- Check if the width of the header is larger than the width of the message.
-            if header_width > message_width then
-                -- If yes, then recalculate the box width and box x position using the header width instead.
-                box_width = header_width + box_buffer_size;
-                box_x = (screen_w / 2) - (box_width / 2);
-            end
+            -- Get the x and y coordinate for the modal for the header and message text using the middle alignment.
+            local x, y = d2d.calculate_modal_coordinates_for_alignment(
+                imgui.constants.alignment_option.middle,
+                screen_w, screen_h,
+                header_text, message_text,
+                draw_manager.font,
+                draw_manager.font,
+                box_buffer_size,
+                config_manager.config.current.display.x_position_adjust,
+                config_manager.config.current.display.y_position_adjust);
 
-            -- Apply x and y adjustments from the config.
-            box_x = box_x + config_manager.config.current.display.x_position_adjust;
-            box_y = box_y + config_manager.config.current.display.y_position_adjust;
-            text_x = text_x + config_manager.config.current.display.x_position_adjust;
-            text_y = text_y + config_manager.config.current.display.y_position_adjust;
-
-            -- Draw the box with outline to the screen.
-            d2d.fill_rect(box_x, box_y, box_width, box_height, background_color);
-            d2d.outline_rect(box_x, box_y, box_width, box_height, 5, outline_color);
-
-            -- Draw the header text into the message box.
-            d2d.text(draw_manager.font, header_text, text_x + header_x_offset + box_buffer_size_half,
-                text_y + box_buffer_size_half, text_color);
-
-            -- Draw the message text into the message box.
-            d2d.text(draw_manager.font, message_text, text_x + box_buffer_size_half,
-                text_y + box_buffer_size_half, text_color);
+            -- Draw the notification/warning modal.
+            d2d.modal(header_text, message_text,
+                draw_manager.font, draw_manager.font,
+                x, y,
+                box_buffer_size,
+                background_color, text_color, text_color,
+                true, 5, outline_color);
         end
     end)
 end

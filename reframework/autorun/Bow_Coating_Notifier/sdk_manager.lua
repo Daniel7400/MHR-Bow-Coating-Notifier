@@ -1,3 +1,7 @@
+--- IMPORTS
+local constants = require("Achievement_Progress_Tracker.constants");
+--- END IMPORTS
+
 --- The manager for all things related calling into the sdk.
 local sdk_manager = {
     -- The player manager managed singleton from the sdk.
@@ -12,7 +16,7 @@ function sdk_manager.get_player()
     -- Check if the player manager on the sdk manager is NOT already loaded/valid.
     if not sdk_manager.player_manager then
         -- If yes, then call into the sdk to get the player manager managed singleton.
-        sdk_manager.player_manager = sdk.get_managed_singleton('snow.player.PlayerManager')
+        sdk_manager.player_manager = sdk.get_managed_singleton(constants.type_name.player_manager);
     end
 	
     -- Check if the player manager is stil NOT valid.
@@ -22,14 +26,14 @@ function sdk_manager.get_player()
 	end
 	
     -- Return the player object as a result of the find master player call on the player manager.
-	return sdk_manager.player_manager:call("findMasterPlayer")
+	return sdk_manager.player_manager:call("findMasterPlayer");
 end
 
 ---
 --- Initializes the sdk manager module.
 ---
 function sdk_manager.init_module()
-    sdk_manager.player_manager = sdk.get_managed_singleton('snow.player.PlayerManager')
+    sdk_manager.player_manager = sdk.get_managed_singleton(constants.type_name.player_manager);
 end
 
 return sdk_manager;

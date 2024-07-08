@@ -1,7 +1,6 @@
 -- IMPORTS
-local green_comfy_tea_utils = require("Bow_Coating_Notifier.green_comfy_tea_utils");
+local constants = require("Bow_Coating_Notifier.constants");
 local config_manager = require("Bow_Coating_Notifier.config_manager");
-local constants = require("Bow_Coating_Notifier.constants")
 -- END IMPORTS
 
 --- The manager for all things related to languages.
@@ -133,8 +132,8 @@ function language_manager.load()
 
                     -- Check if the unicode glyph code was converted successfully AND doesn't already have an entry in the
                     -- range of unicode glyphs stored in the language manager.
-                    if unicode_glyph_code and not green_comfy_tea_utils.table.find_index(language_manager.unicode_glyph_ranges,
-                        unicode_glyph_code, true) then
+                    if unicode_glyph_code and not table.find_key(language_manager.unicode_glyph_ranges,
+                        unicode_glyph_code) then
                         -- If yes, then insert the current unicode glyph code into the range of unicode glyphs stored
                         -- in the language manager.
                         table.insert(language_manager.unicode_glyph_ranges, unicode_glyph_code);
@@ -144,9 +143,8 @@ function language_manager.load()
 
             -- Merge the loaded language into the default language (to verify the schema, and force it to match the default
             -- language structure, any other values will be ignored).
-            local merged_language = green_comfy_tea_utils.table.merge(language_manager.language.default,
-                loaded_language);
-            
+            local merged_language = table.matched_merge(language_manager.language.default, loaded_language);
+
             -- Insert the merged language into the collection of loaded languages.
             table.insert(loaded_languages, merged_language);
         else -- Else, the loaded language was invalid.
@@ -160,12 +158,12 @@ end
 --- Update the current language to the language found using the provided index. If the language found using the index doesn't exist
 --- then the current language will be set to the default language.
 --- 
---- @param index integer|nil The index used to reference into the loaded language collection to attempt to set as the new current language.
+--- @param key integer The key used to reference into the loaded language collection to attempt to set as the new current language.
 --- @param should_update_config boolean The flag used to determine if the config value should be updated as well when the current language is updated.
 ---
-function language_manager.update(index, should_update_config)
-    -- Attempt to get the language that matches the provided index from the collection of loaded languages.
-    local selected_language = loaded_languages[index];
+function language_manager.update(key, should_update_config)
+    -- Attempt to get the language that matches the provided key from the collection of loaded languages.
+    local selected_language = loaded_languages[key];
 
     -- Check if the selected language was NOT found OR doesn't have any entries.
     if not selected_language or not next(selected_language) then
@@ -173,12 +171,12 @@ function language_manager.update(index, should_update_config)
         language_manager.reset();
     else -- Else, the selected language is valid.
         -- Update the current language to a deep copy of the found selected language.
-        language_manager.language.current = green_comfy_tea_utils.table.deep_copy(selected_language);
+        language_manager.language.current = table.clone(selected_language);
     end
 
     if should_update_config then
         -- Set the language on the config as the name of the language selected.
-        config_manager.config.current.language = language_manager.language.names[index];
+        config_manager.config.current.language = language_manager.language.names[key];
     end
 end
 
@@ -186,8 +184,8 @@ end
 --- Reset the current language back to the default language.
 ---
 function language_manager.reset()
-    -- Reset the current language back to a deep copy of the default language.
-    language_manager.language.current = green_comfy_tea_utils.table.deep_copy(language_manager.language.default);
+    -- Reset the current language back to a clone of the default language.
+    language_manager.language.current = table.clone(language_manager.language.default);
 end
 
 ---
@@ -198,8 +196,8 @@ function language_manager.init_module()
     language_manager.load();
 
     -- Update the current language to the language that matches the language saved in the config.
-    language_manager.update(green_comfy_tea_utils.table.find_index(language_manager.language.names,
-        config_manager.config.current.language, false), false);
+    language_manager.update(table.find_key(language_manager.language.names,
+        config_manager.config.current.language), false);
 
     -- Insert 0 at the end of the collection of unicode glyph range.
     table.insert(language_manager.unicode_glyph_ranges, 0);

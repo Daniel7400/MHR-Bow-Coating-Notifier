@@ -1,7 +1,3 @@
--- IMPORTS
-local green_comfy_tea_utils = require("Bow_Coating_Notifier.green_comfy_tea_utils");
--- END IMPORTS
-
 --- Constants to be used throughout the application.
 local constants <const> = {
     -- The name of the mod.
@@ -37,11 +33,17 @@ local constants <const> = {
         percentage = 2
     },
 
+    -- The names for types within the game.
+    type_name = {
+        -- The Player Manager type name.
+        player_manager = "snow.player.PlayerManager"
+    },
+
     -- The enum that defines the available player weapon types.
-    player_weapon_type = green_comfy_tea_utils.sdk.generate_enum_name_as_key("snow.player.PlayerWeaponType"),
+    player_weapon_type = sdk.enum_to_table("snow.player.PlayerWeaponType"),
 
     -- The enum that defines the available coating types.
-    coating_type = green_comfy_tea_utils.sdk.generate_enum_name_as_key("snow.data.weapon.BottleTypes")
+    coating_type = sdk.enum_to_table("snow.data.weapon.BottleTypes")
 }
 
 -- The language directory path that contains all of the language files.
