@@ -1,8 +1,8 @@
 log.info("[bow_coating_notifier.lua] loaded")
 
 --- IMPORTS
-require("Achievement_Progress_Tracker.extensions.sdk_extensions");
-require("Achievement_Progress_Tracker.extensions.table_extensions");
+require("Bow_Coating_Notifier.extensions.sdk_extensions");
+require("Bow_Coating_Notifier.extensions.table_extensions");
 local constants = require("Bow_Coating_Notifier.constants");
 local config_manager = require("Bow_Coating_Notifier.config_manager");
 local draw_manager = require("Bow_Coating_Notifier.draw_manager");

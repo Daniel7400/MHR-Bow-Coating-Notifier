@@ -1,5 +1,5 @@
 --- IMPORTS
-local constants = require("Achievement_Progress_Tracker.constants");
+local constants = require("Bow_Coating_Notifier.constants");
 --- END IMPORTS
 
 --- The manager for all things related calling into the sdk.
