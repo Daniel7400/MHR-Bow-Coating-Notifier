@@ -1,8 +1,8 @@
 --- IMPORTS
 local constants = require("Bow_Coating_Notifier.constants");
 local config_manager = require("Bow_Coating_Notifier.config_manager");
-local draw_manager = require("Bow_Coating_Notifier.draw_manager");
 local language_manager = require("Bow_Coating_Notifier.language_manager");
+local draw_manager = require("Bow_Coating_Notifier.draw_manager");
 --- END IMPORTS
 
 --- The manager for the REFramework UI section of the mod.

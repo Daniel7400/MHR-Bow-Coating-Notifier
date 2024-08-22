@@ -1,4 +1,5 @@
 -- IMPORTS
+require("Bow_Coating_Notifier.extensions.d2d_extensions");
 local config_manager = require("Bow_Coating_Notifier.config_manager");
 local language_manager = require("Bow_Coating_Notifier.language_manager");
 -- END IMPORTS

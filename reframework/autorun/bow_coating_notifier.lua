@@ -1,6 +1,8 @@
 log.info("[bow_coating_notifier.lua] loaded")
 
 --- IMPORTS
+require("Bow_Coating_Notifier.extensions.imgui_extensions");
+require("Bow_Coating_Notifier.extensions.math_extensions");
 require("Bow_Coating_Notifier.extensions.sdk_extensions");
 require("Bow_Coating_Notifier.extensions.table_extensions");
 local constants = require("Bow_Coating_Notifier.constants");
